@@ -20,6 +20,9 @@ importers:
       '@nestjs/swagger':
         specifier: 7.4.0
         version: 7.4.0(@nestjs/common@10.3.10(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.3.10(@nestjs/common@10.3.10(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/platform-express@10.3.10)(reflect-metadata@0.2.2)(rxjs@7.8.1))(reflect-metadata@0.2.2)
+      eslint-plugin-simple-import-sort:
+        specifier: 12.1.1
+        version: 12.1.1(eslint@8.57.0)
       reflect-metadata:
         specifier: 0.2.2
         version: 0.2.2
@@ -1288,6 +1291,11 @@ packages:
         optional: true
       eslint-config-prettier:
         optional: true
+
+  eslint-plugin-simple-import-sort@12.1.1:
+    resolution: {integrity: sha512-6nuzu4xwQtE3332Uz0to+TxDQYRLTKRESSc2hefVT48Zc8JthmN23Gx9lnYhu0FtkRSL1oxny3kJ2aveVhmOVA==}
+    peerDependencies:
+      eslint: '>=5.0.0'
 
   eslint-scope@5.1.1:
     resolution: {integrity: sha512-2NxwbF/hZ0KpepYN0cNbo+FN6XoK7GaHlQhgx/hIZl6Va0bF45RQOOwhLIy8lQDbuCiadSLCBnH2CFYquit5bw==}
@@ -4195,6 +4203,10 @@ snapshots:
     optionalDependencies:
       '@types/eslint': 9.6.0
       eslint-config-prettier: 9.1.0(eslint@8.57.0)
+
+  eslint-plugin-simple-import-sort@12.1.1(eslint@8.57.0):
+    dependencies:
+      eslint: 8.57.0
 
   eslint-scope@5.1.1:
     dependencies:
