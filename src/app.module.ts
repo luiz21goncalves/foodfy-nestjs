@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { ThrottlerModule } from '@nestjs/throttler';
 import * as Joi from 'joi';
 
 import { AppController } from './app.controller';
@@ -28,6 +29,7 @@ import { PrismaService } from './prisma/prisma.service';
         DATABASE_URL: Joi.string().uri(),
       }),
     }),
+    ThrottlerModule.forRoot([{ limit: 10, ttl: 60000 }]),
   ],
   controllers: [AppController],
   providers: [AppService, PrismaService],

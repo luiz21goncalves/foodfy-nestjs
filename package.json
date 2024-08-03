@@ -25,6 +25,7 @@
     "@nestjs/platform-express": "10.3.10",
     "@nestjs/swagger": "7.4.0",
     "@nestjs/terminus": "10.2.3",
+    "@nestjs/throttler": "6.0.0",
     "@prisma/client": "5.17.0",
     "eslint-plugin-simple-import-sort": "12.1.1",
     "joi": "17.13.3",
