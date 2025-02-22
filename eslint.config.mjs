@@ -42,4 +42,13 @@ export default tseslint.config(
       'simple-import-sort/exports': 'error',
     },
   },
+  {
+    rules: {
+      'sort-keys': [
+        'error',
+        'asc',
+        { caseSensitive: true, natural: true, minKeys: 2 },
+      ],
+    },
+  },
 );
