@@ -1,4 +1,6 @@
 {
+  "displayName": "e2e",
+  "verbose": true,
   "moduleFileExtensions": ["js", "json", "ts"],
   "rootDir": ".",
   "testEnvironment": "node",
