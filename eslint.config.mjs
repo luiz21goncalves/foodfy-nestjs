@@ -21,7 +21,9 @@ export default tseslint.config(
       ecmaVersion: 5,
       sourceType: 'module',
       parserOptions: {
-        projectService: true,
+        projectService: {
+          allowDefaultProject: ['*.js', '*.mjs'],
+        },
         tsconfigRootDir: import.meta.dirname,
       },
     },
