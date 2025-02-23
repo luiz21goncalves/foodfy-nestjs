@@ -1,0 +1,42 @@
+name: Test
+
+on: pull_request
+
+env:
+  nodejs: 22.14.0
+  pnpm: 10.4.0
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+
+      - name: install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.pnpm }}
+
+      - name: cache node_modules
+        uses: actions/cache@v4
+        id: pnpm-cache
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.nodejs }}
+          cache: 'pnpm'
+
+        if: steps.pnpm-cache.outputs.cache-hit != 'true'
+      - run: pnpm install --prefer-offline --frozen-lockfile
+
+      - name: run tests
+        run: pnpm run test
