@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Env } from './env';
+import { StatusModule } from './v1/status/status.module';
 
 @Module({
   controllers: [AppController],
@@ -38,6 +39,7 @@ import { Env } from './env';
         };
       },
     }),
+    StatusModule,
   ],
   providers: [AppService],
 })
