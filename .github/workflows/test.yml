@@ -38,5 +38,8 @@ jobs:
         if: steps.pnpm-cache.outputs.cache-hit != 'true'
       - run: pnpm install --prefer-offline --frozen-lockfile
 
+      - name: run services
+        run: docker compose up -d
+
       - name: run tests
         run: pnpm run test
