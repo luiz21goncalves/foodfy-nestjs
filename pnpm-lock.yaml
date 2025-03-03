@@ -25,7 +25,16 @@ importers:
         version: 11.0.4(@nestjs/common@11.0.10(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.0.10)(reflect-metadata@0.2.2)
       '@nestjs/terminus':
         specifier: 11.0.0
-        version: 11.0.0(@nestjs/common@11.0.10(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.0.10)(@nestjs/typeorm@11.0.0(@nestjs/common@11.0.10(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.0.10)(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.20(pg@8.13.3)(ts-node@10.9.2(@swc/core@1.10.18)(@types/node@22.13.5)(typescript@5.7.3))))(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.20(pg@8.13.3)(ts-node@10.9.2(@swc/core@1.10.18)(@types/node@22.13.5)(typescript@5.7.3)))
+        version: 11.0.0(@nestjs/common@11.0.10(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.0.10)(@nestjs/typeorm@11.0.0(@nestjs/common@11.0.10(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.0.10)(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.20(pg@8.13.3)(ts-node@10.9.2(@swc/core@1.10.18)(@types/node@22.13.5)(typescript@5.7.3))))(@prisma/client@6.4.1(prisma@6.4.1(typescript@5.7.3))(typescript@5.7.3))(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.20(pg@8.13.3)(ts-node@10.9.2(@swc/core@1.10.18)(@types/node@22.13.5)(typescript@5.7.3)))
+      '@prisma/client':
+        specifier: 6.4.1
+        version: 6.4.1(prisma@6.4.1(typescript@5.7.3))(typescript@5.7.3)
+      dotenv:
+        specifier: 16.4.7
+        version: 16.4.7
+      dotenv-expand:
+        specifier: 12.0.1
+        version: 12.0.1
       joi:
         specifier: 17.13.3
         version: 17.13.3
@@ -50,13 +59,16 @@ importers:
         version: 9.21.0
       '@nestjs/cli':
         specifier: 11.0.4
-        version: 11.0.4(@swc/cli@0.6.0(@swc/core@1.10.18)(chokidar@4.0.3))(@swc/core@1.10.18)(@types/node@22.13.5)
+        version: 11.0.4(@swc/cli@0.6.0(@swc/core@1.10.18)(chokidar@4.0.3))(@swc/core@1.10.18)(@types/node@22.13.5)(esbuild@0.24.2)
       '@nestjs/schematics':
         specifier: 11.0.1
         version: 11.0.1(chokidar@4.0.3)(typescript@5.7.3)
       '@nestjs/testing':
         specifier: 11.0.10
         version: 11.0.10(@nestjs/common@11.0.10(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.0.10)(@nestjs/platform-express@11.0.10)
+      '@prisma/config':
+        specifier: 6.4.1
+        version: 6.4.1
       '@swc/cli':
         specifier: 0.6.0
         version: 0.6.0(@swc/core@1.10.18)(chokidar@4.0.3)
@@ -99,6 +111,9 @@ importers:
       prettier:
         specifier: 3.5.2
         version: 3.5.2
+      prisma:
+        specifier: 6.4.1
+        version: 6.4.1(typescript@5.7.3)
       source-map-support:
         specifier: 0.5.21
         version: 0.5.21
@@ -911,6 +926,36 @@ packages:
   '@pkgr/core@0.1.1':
     resolution: {integrity: sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
+
+  '@prisma/client@6.4.1':
+    resolution: {integrity: sha512-A7Mwx44+GVZVexT5e2GF/WcKkEkNNKbgr059xpr5mn+oUm2ZW1svhe+0TRNBwCdzhfIZ+q23jEgsNPvKD9u+6g==}
+    engines: {node: '>=18.18'}
+    peerDependencies:
+      prisma: '*'
+      typescript: '>=5.1.0'
+    peerDependenciesMeta:
+      prisma:
+        optional: true
+      typescript:
+        optional: true
+
+  '@prisma/config@6.4.1':
+    resolution: {integrity: sha512-phJxM9V5/NJ4vFC0p1iM2Jcbe5D+Es/34BK3DVhmtCZ9NBiRskIeyp/5OY70LzgqZOsBtPhZutW2JD0+QdIVuw==}
+
+  '@prisma/debug@6.4.1':
+    resolution: {integrity: sha512-Q9xk6yjEGIThjSD8zZegxd5tBRNHYd13GOIG0nLsanbTXATiPXCLyvlYEfvbR2ft6dlRsziQXfQGxAgv7zcMUA==}
+
+  '@prisma/engines-version@6.4.0-29.a9055b89e58b4b5bfb59600785423b1db3d0e75d':
+    resolution: {integrity: sha512-Xq54qw55vaCGrGgIJqyDwOq0TtjZPJEWsbQAHugk99hpDf2jcEeQhUcF+yzEsSqegBaDNLA4IC8Nn34sXmkiTQ==}
+
+  '@prisma/engines@6.4.1':
+    resolution: {integrity: sha512-KldENzMHtKYwsOSLThghOIdXOBEsfDuGSrxAZjMnimBiDKd3AE4JQ+Kv+gBD/x77WoV9xIPf25GXMWffXZ17BA==}
+
+  '@prisma/fetch-engine@6.4.1':
+    resolution: {integrity: sha512-uZ5hVeTmDspx7KcaRCNoXmcReOD+84nwlO2oFvQPRQh9xiFYnnUKDz7l9bLxp8t4+25CsaNlgrgilXKSQwrIGQ==}
+
+  '@prisma/get-platform@6.4.1':
+    resolution: {integrity: sha512-gXqZaDI5scDkBF8oza7fOD3Q3QMD0e0rBynlzDDZdTWbWmzjuW58PRZtj+jkvKje2+ZigCWkH8SsWZAsH6q1Yw==}
 
   '@rollup/pluginutils@5.1.4':
     resolution: {integrity: sha512-USm05zrsFxYLPdWWq+K3STlWiT/3ELn3RcV5hJMghpeAIhxfsUIg6mt12CBJBInWMV4VneoV7SfGv8xIwo2qNQ==}
@@ -1973,6 +2018,11 @@ packages:
   es-set-tostringtag@2.1.0:
     resolution: {integrity: sha512-j6vWzfrGVfyXxge+O0x5sh6cvxAog0a/4Rdd2K36zCMV5eJ+/+tOAngRO8cODMNWbVRdVlmGZQL2YS3yR8bIUA==}
     engines: {node: '>= 0.4'}
+
+  esbuild-register@3.6.0:
+    resolution: {integrity: sha512-H2/S7Pm8a9CL1uhp9OvjwrBh5Pvx0H8qVOxNu8Wed9Y7qv56MPtq+GGM8RJpq6glYJn9Wspr8uw7l55uyinNeg==}
+    peerDependencies:
+      esbuild: '>=0.12 <1'
 
   esbuild@0.24.2:
     resolution: {integrity: sha512-+9egpBW8I3CD5XPe0n6BfT5fxLzxrlDzqydF3aviG+9ni1lDC/OvMHcxqEFV0+LANZG5R1bFMWfUrjVsdwxJvA==}
@@ -3055,6 +3105,16 @@ packages:
     resolution: {integrity: sha512-lc6npv5PH7hVqozBR7lkBNOGXV9vMwROAPlumdBkX0wTbbzPu/U1hk5yL8p2pt4Xoc+2mkT8t/sow2YrV/M5qg==}
     engines: {node: '>=14'}
     hasBin: true
+
+  prisma@6.4.1:
+    resolution: {integrity: sha512-q2uJkgXnua/jj66mk6P9bX/zgYJFI/jn4Yp0aS6SPRrjH/n6VyOV7RDe1vHD0DX8Aanx4MvgmUPPoYnR6MJnPg==}
+    engines: {node: '>=18.18'}
+    hasBin: true
+    peerDependencies:
+      typescript: '>=5.1.0'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   process-nextick-args@2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
@@ -4427,7 +4487,7 @@ snapshots:
       '@napi-rs/nice-win32-x64-msvc': 1.0.1
     optional: true
 
-  '@nestjs/cli@11.0.4(@swc/cli@0.6.0(@swc/core@1.10.18)(chokidar@4.0.3))(@swc/core@1.10.18)(@types/node@22.13.5)':
+  '@nestjs/cli@11.0.4(@swc/cli@0.6.0(@swc/core@1.10.18)(chokidar@4.0.3))(@swc/core@1.10.18)(@types/node@22.13.5)(esbuild@0.24.2)':
     dependencies:
       '@angular-devkit/core': 19.1.7(chokidar@4.0.3)
       '@angular-devkit/schematics': 19.1.7(chokidar@4.0.3)
@@ -4438,7 +4498,7 @@ snapshots:
       chokidar: 4.0.3
       cli-table3: 0.6.5
       commander: 4.1.1
-      fork-ts-checker-webpack-plugin: 9.0.2(typescript@5.7.3)(webpack@5.98.0(@swc/core@1.10.18))
+      fork-ts-checker-webpack-plugin: 9.0.2(typescript@5.7.3)(webpack@5.98.0(@swc/core@1.10.18)(esbuild@0.24.2))
       glob: 11.0.1
       node-emoji: 1.11.0
       ora: 5.4.1
@@ -4446,7 +4506,7 @@ snapshots:
       tsconfig-paths: 4.2.0
       tsconfig-paths-webpack-plugin: 4.2.0
       typescript: 5.7.3
-      webpack: 5.98.0(@swc/core@1.10.18)
+      webpack: 5.98.0(@swc/core@1.10.18)(esbuild@0.24.2)
       webpack-node-externals: 3.0.0
     optionalDependencies:
       '@swc/cli': 0.6.0(@swc/core@1.10.18)(chokidar@4.0.3)
@@ -4527,7 +4587,7 @@ snapshots:
       reflect-metadata: 0.2.2
       swagger-ui-dist: 5.19.0
 
-  '@nestjs/terminus@11.0.0(@nestjs/common@11.0.10(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.0.10)(@nestjs/typeorm@11.0.0(@nestjs/common@11.0.10(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.0.10)(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.20(pg@8.13.3)(ts-node@10.9.2(@swc/core@1.10.18)(@types/node@22.13.5)(typescript@5.7.3))))(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.20(pg@8.13.3)(ts-node@10.9.2(@swc/core@1.10.18)(@types/node@22.13.5)(typescript@5.7.3)))':
+  '@nestjs/terminus@11.0.0(@nestjs/common@11.0.10(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.0.10)(@nestjs/typeorm@11.0.0(@nestjs/common@11.0.10(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.0.10)(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.20(pg@8.13.3)(ts-node@10.9.2(@swc/core@1.10.18)(@types/node@22.13.5)(typescript@5.7.3))))(@prisma/client@6.4.1(prisma@6.4.1(typescript@5.7.3))(typescript@5.7.3))(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.20(pg@8.13.3)(ts-node@10.9.2(@swc/core@1.10.18)(@types/node@22.13.5)(typescript@5.7.3)))':
     dependencies:
       '@nestjs/common': 11.0.10(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/core': 11.0.10(@nestjs/common@11.0.10(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/platform-express@11.0.10)(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -4537,6 +4597,7 @@ snapshots:
       rxjs: 7.8.2
     optionalDependencies:
       '@nestjs/typeorm': 11.0.0(@nestjs/common@11.0.10(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.0.10)(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.20(pg@8.13.3)(ts-node@10.9.2(@swc/core@1.10.18)(@types/node@22.13.5)(typescript@5.7.3)))
+      '@prisma/client': 6.4.1(prisma@6.4.1(typescript@5.7.3))(typescript@5.7.3)
       typeorm: 0.3.20(pg@8.13.3)(ts-node@10.9.2(@swc/core@1.10.18)(@types/node@22.13.5)(typescript@5.7.3))
 
   '@nestjs/testing@11.0.10(@nestjs/common@11.0.10(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.0.10)(@nestjs/platform-express@11.0.10)':
@@ -4576,6 +4637,39 @@ snapshots:
     optional: true
 
   '@pkgr/core@0.1.1': {}
+
+  '@prisma/client@6.4.1(prisma@6.4.1(typescript@5.7.3))(typescript@5.7.3)':
+    optionalDependencies:
+      prisma: 6.4.1(typescript@5.7.3)
+      typescript: 5.7.3
+
+  '@prisma/config@6.4.1':
+    dependencies:
+      esbuild: 0.24.2
+      esbuild-register: 3.6.0(esbuild@0.24.2)
+    transitivePeerDependencies:
+      - supports-color
+
+  '@prisma/debug@6.4.1': {}
+
+  '@prisma/engines-version@6.4.0-29.a9055b89e58b4b5bfb59600785423b1db3d0e75d': {}
+
+  '@prisma/engines@6.4.1':
+    dependencies:
+      '@prisma/debug': 6.4.1
+      '@prisma/engines-version': 6.4.0-29.a9055b89e58b4b5bfb59600785423b1db3d0e75d
+      '@prisma/fetch-engine': 6.4.1
+      '@prisma/get-platform': 6.4.1
+
+  '@prisma/fetch-engine@6.4.1':
+    dependencies:
+      '@prisma/debug': 6.4.1
+      '@prisma/engines-version': 6.4.0-29.a9055b89e58b4b5bfb59600785423b1db3d0e75d
+      '@prisma/get-platform': 6.4.1
+
+  '@prisma/get-platform@6.4.1':
+    dependencies:
+      '@prisma/debug': 6.4.1
 
   '@rollup/pluginutils@5.1.4(rollup@4.34.8)':
     dependencies:
@@ -5661,6 +5755,13 @@ snapshots:
       has-tostringtag: 1.0.2
       hasown: 2.0.2
 
+  esbuild-register@3.6.0(esbuild@0.24.2):
+    dependencies:
+      debug: 4.4.0
+      esbuild: 0.24.2
+    transitivePeerDependencies:
+      - supports-color
+
   esbuild@0.24.2:
     optionalDependencies:
       '@esbuild/aix-ppc64': 0.24.2
@@ -5966,7 +6067,7 @@ snapshots:
       cross-spawn: 7.0.6
       signal-exit: 4.1.0
 
-  fork-ts-checker-webpack-plugin@9.0.2(typescript@5.7.3)(webpack@5.98.0(@swc/core@1.10.18)):
+  fork-ts-checker-webpack-plugin@9.0.2(typescript@5.7.3)(webpack@5.98.0(@swc/core@1.10.18)(esbuild@0.24.2)):
     dependencies:
       '@babel/code-frame': 7.26.2
       chalk: 4.1.2
@@ -5981,7 +6082,7 @@ snapshots:
       semver: 7.7.1
       tapable: 2.2.1
       typescript: 5.7.3
-      webpack: 5.98.0(@swc/core@1.10.18)
+      webpack: 5.98.0(@swc/core@1.10.18)(esbuild@0.24.2)
 
   form-data-encoder@2.1.4: {}
 
@@ -6751,6 +6852,17 @@ snapshots:
 
   prettier@3.5.2: {}
 
+  prisma@6.4.1(typescript@5.7.3):
+    dependencies:
+      '@prisma/engines': 6.4.1
+      esbuild: 0.24.2
+      esbuild-register: 3.6.0(esbuild@0.24.2)
+    optionalDependencies:
+      fsevents: 2.3.3
+      typescript: 5.7.3
+    transitivePeerDependencies:
+      - supports-color
+
   process-nextick-args@2.0.1: {}
 
   proxy-addr@2.0.7:
@@ -7141,16 +7253,17 @@ snapshots:
       fast-fifo: 1.3.2
       streamx: 2.22.0
 
-  terser-webpack-plugin@5.3.11(@swc/core@1.10.18)(webpack@5.98.0(@swc/core@1.10.18)):
+  terser-webpack-plugin@5.3.11(@swc/core@1.10.18)(esbuild@0.24.2)(webpack@5.98.0(@swc/core@1.10.18)(esbuild@0.24.2)):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       jest-worker: 27.5.1
       schema-utils: 4.3.0
       serialize-javascript: 6.0.2
       terser: 5.39.0
-      webpack: 5.98.0(@swc/core@1.10.18)
+      webpack: 5.98.0(@swc/core@1.10.18)(esbuild@0.24.2)
     optionalDependencies:
       '@swc/core': 1.10.18
+      esbuild: 0.24.2
 
   terser@5.39.0:
     dependencies:
@@ -7463,7 +7576,7 @@ snapshots:
 
   webpack-virtual-modules@0.6.2: {}
 
-  webpack@5.98.0(@swc/core@1.10.18):
+  webpack@5.98.0(@swc/core@1.10.18)(esbuild@0.24.2):
     dependencies:
       '@types/eslint-scope': 3.7.7
       '@types/estree': 1.0.6
@@ -7485,7 +7598,7 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 4.3.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.11(@swc/core@1.10.18)(webpack@5.98.0(@swc/core@1.10.18))
+      terser-webpack-plugin: 5.3.11(@swc/core@1.10.18)(esbuild@0.24.2)(webpack@5.98.0(@swc/core@1.10.18)(esbuild@0.24.2))
       watchpack: 2.4.2
       webpack-sources: 3.2.3
     transitivePeerDependencies:
