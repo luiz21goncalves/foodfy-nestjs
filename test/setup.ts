@@ -4,7 +4,7 @@ import { randomUUID } from 'node:crypto';
 import { PrismaClient } from '@prisma/client';
 import dotenv from 'dotenv';
 import { expand } from 'dotenv-expand';
-import { afterEach, beforeEach } from 'vitest';
+import { beforeAll } from 'vitest';
 
 expand(dotenv.config({ path: [`.env.${process.env.NODE_ENV}`] }));
 
@@ -22,10 +22,8 @@ function generateDatabaseUrl(schema: string) {
   return url.toString();
 }
 
-let schema: string;
-
-beforeEach(async () => {
-  schema = randomUUID();
+beforeAll(async () => {
+  const schema = randomUUID();
   const databaseUrl = generateDatabaseUrl(schema);
 
   process.env.DATABASE_URL = databaseUrl;
@@ -33,10 +31,10 @@ beforeEach(async () => {
   await prisma.$connect();
 
   execSync('pnpm exec prisma migrate deploy');
-});
 
-afterEach(async () => {
-  await prisma.$executeRawUnsafe(`DROP SCHEMA IF EXISTS "${schema}" CASCADE`);
+  return async () => {
+    await prisma.$executeRawUnsafe(`DROP SCHEMA IF EXISTS "${schema}" CASCADE`);
 
-  await prisma.$disconnect();
+    await prisma.$disconnect();
+  };
 });
