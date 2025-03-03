@@ -15,7 +15,11 @@ export default defineConfig({
       provider: 'v8',
       reporter: ['text-summary', 'lcov'],
     },
+    env: {
+      NODE_ENV: 'test',
+    },
     globals: false,
     reporters: 'verbose',
+    setupFiles: ['./test/setup.ts'],
   },
 });
