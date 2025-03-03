@@ -41,8 +41,15 @@ export class UserService {
     return new User(user);
   }
 
-  findAll() {
-    return `This action returns all user`;
+  async findAll(): Promise<User[]> {
+    const users = await this.prismaService.user.findMany({
+      orderBy: { createdAt: 'desc' },
+      take: 50,
+    });
+
+    const formattedUsers = users.map((user) => new User(user));
+
+    return formattedUsers;
   }
 
   findOne(id: number) {

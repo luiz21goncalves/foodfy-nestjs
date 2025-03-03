@@ -16,6 +16,7 @@ import {
   ApiCreatedResponse,
   ApiExtraModels,
   ApiInternalServerErrorResponse,
+  ApiOkResponse,
   getSchemaPath,
 } from '@nestjs/swagger';
 
@@ -72,9 +73,25 @@ export class UserController {
     return { user: createdUser };
   }
 
+  @ApiOkResponse({
+    schema: {
+      properties: {
+        users: {
+          items: { $ref: getSchemaPath(User) },
+          type: 'array',
+        },
+      },
+      type: 'object',
+    },
+  })
+  @ApiInternalServerErrorResponse({
+    example: new InternalServerErrorException().getResponse(),
+  })
   @Get()
-  findAll() {
-    return this.userService.findAll();
+  async findAll() {
+    const users = await this.userService.findAll();
+
+    return { users };
   }
 
   @Get(':id')
