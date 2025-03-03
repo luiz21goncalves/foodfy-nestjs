@@ -15,7 +15,7 @@
     "start:prod": "node dist/main",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "pretest": "pnpm exec prisma generate",
+    "postinstall": "pnpm exec prisma generate",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:cov": "vitest run --coverage",
