@@ -17,5 +17,6 @@ export default defineConfig({
     },
     globals: false,
     reporters: 'verbose',
+    setupFiles: ['./test/setup.ts'],
   },
 });
