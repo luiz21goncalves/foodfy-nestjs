@@ -9,10 +9,12 @@ export type Env = {
   POSTGRES_DB: string;
   POSTGRES_PORT: number;
   DATABASE_URL: string;
+  HASH_SALT_LENGTH: number;
 };
 
 export const envSchema = Joi.object<Env, true>({
   DATABASE_URL: Joi.string().uri(),
+  HASH_SALT_LENGTH: Joi.number().port(),
   NODE_ENV: Joi.string().valid('test', 'development', 'production'),
   PORT: Joi.number().port(),
   POSTGRES_DB: Joi.string().required(),

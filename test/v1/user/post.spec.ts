@@ -5,6 +5,8 @@ import supertest from 'supertest';
 import { App } from 'supertest/types';
 import { beforeEach, describe, expect, test } from 'vitest';
 
+import { UserService } from '@/v1/user/user.service';
+
 const PATH = '/v1/users';
 
 describe(`POST ${PATH}`, () => {
@@ -204,7 +206,8 @@ describe(`POST ${PATH}`, () => {
       test('with the same email in capitalized letters', async () => {
         const email = faker.internet.email().toUpperCase();
 
-        await supertest(app.getHttpServer()).post(PATH).send({
+        const userService = app.get(UserService);
+        await userService.create({
           email,
           name: faker.person.fullName(),
           password: faker.internet.password(),

@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
+import { HashService } from '@/hash/hash.service';
 import { PrismaService } from '@/prisma/prisma.service';
 
 import { CreateUserDto } from './dto/create-user.dto';
@@ -8,7 +9,10 @@ import { User } from './entities/user.entity';
 
 @Injectable()
 export class UserService {
-  constructor(private readonly prismaService: PrismaService) {}
+  constructor(
+    private readonly prismaService: PrismaService,
+    private readonly hashService: HashService,
+  ) {}
 
   async findByEmail(email: string): Promise<User | null> {
     const user = await this.prismaService.user.findUnique({
@@ -23,11 +27,13 @@ export class UserService {
   }
 
   async create({ email, name, password, role }: CreateUserDto): Promise<User> {
+    const passwordHash = await this.hashService.hash(password);
+
     const user = await this.prismaService.user.create({
       data: {
         email: email.toLowerCase(),
         name,
-        passwordHash: password,
+        passwordHash,
         role,
       },
     });
